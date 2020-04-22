@@ -2,7 +2,10 @@
 0. Create Main/Base Folder
 1. create db folder in this base folder
 2. create new db.json file in db folder
+
     and add following code
+
+
     {
         "restaurent": [
             {
