@@ -10,6 +10,9 @@ class RestaurentList extends Component {
         }
     }
     componentDidMount(){
+        this.getData();
+    }
+    getData(){
         fetch("http://localhost:3000/restaurent").then((response)=>{
             response.json().then((result)=>{
                 this.setState(
@@ -19,6 +22,18 @@ class RestaurentList extends Component {
                     )
             })
         })
+    }
+    delete(id){   
+        fetch("http://localhost:3000/restaurent/"+id,{
+            method:"delete"
+        }).then((result)=>{
+            result.json().then((resp)=>{
+                // console.warn(resp)
+                alert("Data deletey")
+                this.getData()
+            })
+        })
+    
     }
     render() {
         console.warn(this.state)
@@ -44,7 +59,10 @@ class RestaurentList extends Component {
                                  <td>{item.email}</td>
                                  <td>{item.rating}</td>
                                  <td>{item.address}</td>
-                                 <td><Link to={"/update/"+item.id}>Edit</Link></td>
+                                 <td>
+                                     <Link to={"/update/"+item.id}>Edit</Link>
+                                    <button onClick={()=>this.delete(item.id)}>Delete</button>
+                                 </td>
                             </tr>
                            
                         )}
