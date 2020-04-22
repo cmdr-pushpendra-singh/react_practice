@@ -6,7 +6,8 @@ class RestaurentList extends Component {
     constructor(){
         super()
         this.state={
-            list:null
+            list:null,
+            searchData:null
         }
     }
     componentDidMount(){
@@ -35,11 +36,27 @@ class RestaurentList extends Component {
         })
     
     }
+    search(k){
+        fetch("http://localhost:3000/restaurent/q="+k).then((data)=>{
+            data.json().then((resp)=>{
+                // console.warn(resp)
+                this.setState({
+                    list:null,
+                    searchData:resp
+                })
+            })
+        })
+
+
+    }
     render() {
         console.warn(this.state)
         return (
+            <>
             <div >
                 <a className="btn" href="/create">Add New restaurent</a>
+                <br></br>
+                <input type="text" placeholder="Search Restaurent" onChange={(event)=>this.search(event.target.value)}/>
                 <h2>List</h2>
                 {
                     this.state.list?
@@ -69,7 +86,9 @@ class RestaurentList extends Component {
                     </table>
                     :<p>Please wait</p>
                 }
+
             </div>
+            </>
         );
     }
 }

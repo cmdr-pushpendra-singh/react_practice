@@ -39,7 +39,7 @@ function App() {
         </div>
       </nav>
 
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>  
         <Route path="/list">
