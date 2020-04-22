@@ -41,6 +41,7 @@ class RestaurentUpdate extends Component {
             })
         })
     }
+    
     render() {
         console.warn(this.props.match.params.id)
         return (
