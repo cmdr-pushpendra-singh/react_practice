@@ -7,6 +7,8 @@
 
 
     {
+    
+    
         "restaurent": [
             {
             "id": 1,
@@ -15,6 +17,8 @@
             "rating": "4",
             "address": "address1"
             },
+            
+            
     }
 
 4. Run 'json-server --watch db.json' command in terminal 
