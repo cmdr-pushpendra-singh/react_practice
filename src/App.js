@@ -7,6 +7,7 @@ import RestaurentList from "./components/RestaurentList"
 import RestaurentCreate from "./components/RestaurentCreate"
 import RestaurentSearch from './components/RestaurentSearch';
 import RestaurentUpdate from './components/RestaurentUpdate';
+import Login from './components/Login';
 
 
 function App() {
@@ -32,7 +33,10 @@ function App() {
                 <a className="nav-link"><Link to="/list">list</Link></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link">Contact</a>
+                <a className="nav-link"><Link to="/list">Contact Us</Link></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link"><Link to="/login">Login</Link></a>
               </li>
             </ul>
           </div>
@@ -51,6 +55,13 @@ function App() {
         <Route path="/update/:id"
           render={props=>(
             <RestaurentUpdate {...props} />
+          )}
+        >
+        </Route>  
+
+        <Route path="/login"
+          render={props=>(
+            <Login {...props} />
           )}
         >
         </Route>  

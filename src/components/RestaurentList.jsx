@@ -34,7 +34,7 @@ class RestaurentList extends Component {
                 this.getData()
             })
         })
-    
+
     }
     search(k){
         fetch("http://localhost:3000/restaurent/q="+k).then((data)=>{
@@ -60,7 +60,7 @@ class RestaurentList extends Component {
                 <h2>List</h2>
                 {
                     this.state.list?
-                    <table>
+                    <table className="text-centers">
                         <tr>
                             <td>S.No</td>
                             <td>Name</td>
